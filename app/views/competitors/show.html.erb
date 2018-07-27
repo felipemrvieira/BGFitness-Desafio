@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @competitor.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @competitor.email %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @competitor.team.name %>
+</p>
+
+<p>
+  <strong>Gym:</strong>
+  <%= @competitor.team.gym.name %>
+</p>
+
+<p>
+  <strong>Quantidade de Atividades:</strong>
+  <%= @competitor_checkins_qtty %>
+</p>
+
+<p>
+  <strong>Pontos:</strong>
+  <%= @competitor_points %>
+</p>
+
+
+<p>
+  <strong>Checkins:</strong>
+  <% @competitor_checkins.each do |checkin| %>
+    <p><%= checkin.date %> - <%= checkin.activity.name %> - <%= checkin.activity.points %></p>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_competitor_path(@competitor) %> |
+<%= link_to 'Back', competitors_path %>

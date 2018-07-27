@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @checkin.date %>
+</p>
+
+<p>
+  <strong>Competitor:</strong>
+  <%= @checkin.competitor.name %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @checkin.activity.name %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @checkin.activity.points %>
+</p>
+
+<%= link_to 'Edit', edit_checkin_path(@checkin) %> |
+<%= link_to 'Back', checkins_path %>
