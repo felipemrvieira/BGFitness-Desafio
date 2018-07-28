@@ -1,6 +1,4 @@
-<h1>Editing Competitor</h1>
+<h1>Editando Competidor</h1>
 
 <%= render 'form', competitor: @competitor %>
-
-<%= link_to 'Show', @competitor %> |
-<%= link_to 'Back', competitors_path %>
+<%= link_to 'Voltar', @competitor.team, class: "btn btn-outline btn-default" %>
