@@ -20,5 +20,5 @@ class Team < ApplicationRecord
     end
     points
   end
-
+  
 end

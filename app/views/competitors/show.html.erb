@@ -1,42 +1,76 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <h1>Competidor: <%= @competitor.name %></h1>
+</div>
+<div class="col-md-5">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        Competidor
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Nome:</strong>
+        <%= @competitor.name %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @competitor.name %>
-</p>
+      <p>
+        <strong>Email:</strong>
+        <%= @competitor.email %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @competitor.email %>
-</p>
+      <p>
+        <strong>Equipe:</strong>
+        <%= @competitor.team.name %>
+      </p>
 
-<p>
-  <strong>Team:</strong>
-  <%= @competitor.team.name %>
-</p>
+      <p>
+        <strong>Unidade:</strong>
+        <%= @competitor.team.gym.name %>
+      </p>
 
-<p>
-  <strong>Gym:</strong>
-  <%= @competitor.team.gym.name %>
-</p>
+      <p>
+        <strong>Quantidade de Atividades:</strong>
+        <%= @competitor_checkins_qtty %>
+      </p>
 
-<p>
-  <strong>Quantidade de Atividades:</strong>
-  <%= @competitor_checkins_qtty %>
-</p>
+      <p>
+        <strong>Pontos:</strong>
+        <%= @competitor_points %>
+      </p>
+      <%= link_to 'Editar Competidor', edit_competitor_path(@competitor), class: "btn btn-outline btn-warning" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Pontos:</strong>
-  <%= @competitor_points %>
-</p>
+<div class="col-md-7">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        Atividades
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Atividade</th>
+            <th>Pontos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @competitor_checkins.each do |checkin| %>
+            <tr>
+              <td><%= checkin.date.strftime("%d/%m/%Y") %></td>
+              <td><%= checkin.activity.name %></td>
+              <td><%= checkin.activity.points %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
+<div class="col-md-12">
+  <%= link_to 'Voltar', @competitor.team, class: "btn btn-outline btn-default" %>
 
-<p>
-  <strong>Checkins:</strong>
-  <% @competitor_checkins.each do |checkin| %>
-    <p><%= checkin.date %> - <%= checkin.activity.name %> - <%= checkin.activity.points %></p>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_competitor_path(@competitor) %> |
-<%= link_to 'Back', competitors_path %>
+</div>
