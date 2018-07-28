@@ -10,31 +10,30 @@
       </ul>
     </div>
   <% end %>
-<div class="col-md-12">
+<div class="col-md-6">
   <div class="panel panel-default">
     <div class="panel-heading">
-
+      Equipe
     </div>
     <div class="panel-body">
 
-      <div class="field">
+      <div class="field form-group">
         <%= form.label :name, 'Nome' %>
-        <%= form.text_field :name, id: :team_name %>
+        <%= form.text_field :name, id: :team_name, class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="field form-group">
         <%= form.label :coach, 'Professor' %>
-        <%= form.text_field :coach, id: :team_coach %>
+        <%= form.text_field :coach, id: :team_coach, class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= form.label :gym_id, 'Unidade' %>
-        <%= collection_select(:team, :gym_id, @gym_options, :id, :name )%>
+        <%= collection_select(:team, :gym_id, @gym_options, :id, :name, class: "form-control" )%>
       </div>
 
-      <div class="actions">
+      <div class="actions form-group">
         <%= form.submit 'Salvar', :class => 'btn btn-outline btn-success' %>
-
       </div>
     <% end %>
   </div>
