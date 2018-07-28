@@ -7,4 +7,8 @@ class Competitor < ApplicationRecord
     activities.sum(:points)
   end
 
+  def checkins_count
+    checkins.count
+  end
+
 end

@@ -12,6 +12,8 @@ class TeamsController < ApplicationController
   def show
     @team_qtty = @team.competitors.count
     @competitors = @team.competitors
+    @checkins = Checkin.all
+
   end
 
   # GET /teams/new
