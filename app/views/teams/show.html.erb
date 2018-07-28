@@ -1,24 +1,115 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
 
-<p>
-  <strong>Gym:</strong>
-  <%= @team.gym.name %>
-</p>
+<div class="col-lg-3">
+  
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Equipe
+        </div>
+        <div class="panel-body">
+            <p>
+              <strong>Equipe:</strong>
+              <%= @team.name %>
+            </p>
+            <p>
+              <strong>Treinador:</strong>
+              <%= @team.coach %>
+            </p>
 
-<p>
-  <strong>Integrantes:</strong>
-  <%= @team_qtty %>
-</p>
+            <p>
+              <strong>Unidade:</strong>
+              <%= @team.gym.name %>
+            </p>
 
-<p>
-  <strong>Pontos:</strong>
-  <%= @team.team_points %>
-</p>
+            <p>
+              <strong>Integrantes:</strong>
+              <%= @team_qtty %>
+            </p>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+            <p>
+              <strong>Pontos:</strong>
+              <%= @team.team_points %>
+            </p>
+        </div>
+    
+  </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Equipe
+        </div>
+        <div class="panel-body">
+            <p>
+              <strong>Equipe:</strong>
+              <%= @team.name %>
+            </p>
+            <p>
+              <strong>Treinador:</strong>
+              <%= @team.coach %>
+            </p>
+
+            <p>
+              <strong>Unidade:</strong>
+              <%= @team.gym.name %>
+            </p>
+
+            <p>
+              <strong>Integrantes:</strong>
+              <%= @team_qtty %>
+            </p>
+
+            <p>
+              <strong>Pontos:</strong>
+              <%= @team.team_points %>
+            </p>
+        </div>
+    
+  </div>
+
+</div>
+
+<div class="col-lg-9">
+  
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Integrantes
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Pontos</th>
+                <th>Equipe</th>
+                <th>Treinador</th>
+                <th>Unidade</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @competitors.each do |competitor| %>
+                <tr>
+                  <td><%= competitor.name %></td>
+                  <td><%= competitor.competitor_points %></td>
+                  <td><%= competitor.team.name %></td>
+                  <td><%= competitor.team.coach %></td>
+                  <td><%= competitor.team.gym.name %></td>
+                  <td><%= link_to 'Show', competitor %></td>
+                  <td><%= link_to 'Edit', edit_competitor_path(competitor) %></td>
+                  <td><%= link_to 'Destroy', competitor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  
+</div>
+
+
+
+<%= link_to 'Editar', edit_team_path(@team) %> |
+<%= link_to 'Voltar', teams_path %>

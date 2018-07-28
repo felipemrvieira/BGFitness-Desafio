@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @team_qtty = @team.competitors.count
+    @competitors = @team.competitors
   end
 
   # GET /teams/new

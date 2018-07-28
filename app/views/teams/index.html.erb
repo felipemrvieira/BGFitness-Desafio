@@ -1,71 +1,81 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Equipes BG Farol</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Cor</th>
-      <th>Equipe</th>
-      <th>Unidade</th>
-      <th>Treinador</th>
-      <th>Participantes</th>
-      <th>Pontos</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.farol.each do |team| %>
-      <tr>
-        <td><span class="dot"></span></td>
-        <td><%= team.name %></td>
-        <td><%= team.gym.name %></td>
-        <td><%= team.coach %></td>
-        <td><%= team.competitors.count %></td>
-        <td><%= team.team_points %></td>
-        
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<hr>
-<h1>Equipes BG Praia</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Cor</th>
-      <th>Equipe</th>
-      <th>Unidade</th>
-      <th>Treinador</th>
-      <th>Participantes</th>
-      <th>Pontos</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.praia.each do |team| %>
-      <tr>
-        <td><span class="dot"></span></td>
-        <td><%= team.name %></td>
-        <td><%= team.gym.name %></td>
-        <td><%= team.coach %></td>
-        <td><%= team.competitors.count %></td>
-        <td><%= team.team_points %></td>
-        
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1>Equipes</h1>
 <br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+      Equipes BG Farol
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Cor</th>
+          <th>Equipe</th>
+          <th>Unidade</th>
+          <th>Treinador</th>
+          <th>Participantes</th>
+          <th>Pontos</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Team', new_team_path %>
+      <tbody>
+        <% @teams.farol.each do |team| %>
+          <tr>
+            <td><span class="dot <%= team.name.downcase %>"></span></td>
+            <td><%= team.name %></td>
+            <td><%= team.gym.name %></td>
+            <td><%= team.coach %></td>
+            <td><%= team.competitors.count %></td>
+            <td><%= team.team_points %></td>
+            
+            <td style="width:5%"><%= link_to 'Visualizar', team, class: "btn btn-outline btn-primary" %></td>
+            <td style="width:5%"><%= link_to 'Editar', edit_team_path(team), class: "btn btn-outline btn-warning" %></td>
+            <td style="width:5%"><%= link_to 'Apagar', team, method: :delete, data: { confirm: 'Deseja Excluir?' }, class: "btn btn-outline btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+      Equipes BG Praia
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Cor</th>
+          <th>Equipe</th>
+          <th>Unidade</th>
+          <th>Treinador</th>
+          <th>Participantes</th>
+          <th>Pontos</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+     <tbody>
+        <% @teams.praia.each do |team| %>
+          <tr>
+            <td><span class="dot <%= team.name.downcase %>"></span></td>
+            <td><%= team.name %></td>
+            <td><%= team.gym.name %></td>
+            <td><%= team.coach %></td>
+            <td><%= team.competitors.count %></td>
+            <td><%= team.team_points %></td>
+            
+            <td style="width:5%"><%= link_to 'Visualizar', team, class: "btn btn-outline btn-primary" %></td>
+            <td style="width:5%"><%= link_to 'Editar', edit_team_path(team), class: "btn btn-outline btn-warning" %></td>
+            <td style="width:5%"><%= link_to 'Apagar', team, method: :delete, data: { confirm: 'Deseja Excluir?' }, class: "btn btn-outline btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'Nova Equipe', new_team_path, class: "btn btn-outline btn-primary" %>
