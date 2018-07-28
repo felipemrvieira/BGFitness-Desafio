@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Teams Farol</h1>
+<h1>Equipes BG Farol</h1>
 
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Cor</th>
       <th>Equipe</th>
       <th>Unidade</th>
+      <th>Treinador</th>
       <th>Participantes</th>
       <th>Pontos</th>
       <th colspan="3"></th>
@@ -16,8 +18,10 @@
   <tbody>
     <% @teams.farol.each do |team| %>
       <tr>
+        <td><span class="dot"></span></td>
         <td><%= team.name %></td>
         <td><%= team.gym.name %></td>
+        <td><%= team.coach %></td>
         <td><%= team.competitors.count %></td>
         <td><%= team.team_points %></td>
         
@@ -29,13 +33,15 @@
   </tbody>
 </table>
 <hr>
-<h1>Teams Praia</h1>
+<h1>Equipes BG Praia</h1>
 
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Cor</th>
       <th>Equipe</th>
       <th>Unidade</th>
+      <th>Treinador</th>
       <th>Participantes</th>
       <th>Pontos</th>
       <th colspan="3"></th>
@@ -45,8 +51,10 @@
   <tbody>
     <% @teams.praia.each do |team| %>
       <tr>
+        <td><span class="dot"></span></td>
         <td><%= team.name %></td>
         <td><%= team.gym.name %></td>
+        <td><%= team.coach %></td>
         <td><%= team.competitors.count %></td>
         <td><%= team.team_points %></td>
         
