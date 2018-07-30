@@ -8,7 +8,20 @@
 Gym.find_or_create_by(name: "BG Farol")
 Gym.find_or_create_by(name: "BG Praia")
 
+Activity.find_or_create_by(name: "STRONG BY ZUMBA", points: 120)
+Activity.find_or_create_by(name: "SPINNING", points: 110)
+Activity.find_or_create_by(name: "MUAY THAI", points: 110)
+Activity.find_or_create_by(name: "FUNCIONAL", points: 100)
+Activity.find_or_create_by(name: "RUNNING", points: 90)
+Activity.find_or_create_by(name: "STEP/JUMP", points: 80)
+Activity.find_or_create_by(name: "FITDANCE", points: 70)
+Activity.find_or_create_by(name: "GAP", points: 70)
+Activity.find_or_create_by(name: "ABDOMINAL", points: 60)
+
+puts "########################################################"
 puts "Cadastrando as Equipes BG Farol"
+puts "########################################################"
+
 equipes = [
     "Azul",
     "Amarela",

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Date</th>
       <th>Competitor</th>
       <th>Team</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @checkins.each do |checkin| %>
       <tr>
+        <td><%= checkin.id %></td>
         <td><%= checkin.date %></td>
         <td><%= checkin.competitor.name %></td>
         <td><%= checkin.competitor.team.team_gym %></td>

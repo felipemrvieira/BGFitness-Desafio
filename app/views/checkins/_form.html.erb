@@ -10,23 +10,30 @@
       </ul>
     </div>
   <% end %>
+  
+      <div class="field form-group">
+        <%= form.label :competitor_id, "Competidor" %>
+        <% if @team %>
+          <%= collection_select(:checkin, :competitor_id, @team, :id, :name, class: "form-control" )%>
+        <% else %>
+          <%= collection_select(:checkin, :competitor_id, checkin.competitor.team.competitors, :id, :name, class: "form-control" )%>
+        <% end %>
+      </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :checkin_date %>
-  </div>
+      <div class="field form-group">
+        <%= form.label :date, "Data" %>
+        <%= form.date_select :date, id: :checkin_date, class: "form-control" %>
+      </div>
 
-  <div class="field form-group">
-    <%= form.label :activity_id %>
-    <%= collection_select(:checkin, :activity_id, @activity_options, :id, :name )%>
-  </div>
+      <div class="field form-group">
+        <%= form.label :activity_id, "Atividade" %>
+        <%= collection_select(:checkin, :activity_id, @activity_options, :id, :name, class: "form-control" )%>
+      </div>
 
-  <div class="field form-group">
-    <%= form.label :competitor_id %>
-    <%= collection_select(:checkin, :competitor_id, @competitor_options, :id, :name )%>
-  </div>
+      
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+      <div class="actions form-group">
+        <%= form.submit 'Salvar', :class => 'btn btn-outline btn-success'%>
+      </div>
+
 <% end %>

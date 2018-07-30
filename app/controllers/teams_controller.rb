@@ -12,14 +12,20 @@ class TeamsController < ApplicationController
   def show
     @team_qtty = @team.competitors.count
     @competitors = @team.competitors
+    @competitor_options = Competitor.all
     @checkins = Checkin.all
+    @checkin = Checkin.new
+    @activity_options = Activity.all
 
   end
 
   # GET /teams/new
   def new
     @team = Team.new
+    @checkin = Checkin.new
     @gym_options = Gym.all
+    @competitor_options = Competitor.all
+
   end
 
   # GET /teams/1/edit

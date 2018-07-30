@@ -1,6 +1,4 @@
-<h1>Editing Checkin</h1>
+<h1>Edição de atividade realizada</h1>
 
 <%= render 'form', checkin: @checkin %>
-
-<%= link_to 'Show', @checkin %> |
-<%= link_to 'Back', checkins_path %>
+<%= link_to 'Voltar', @checkin.competitor.team, class: "btn btn-outline btn-default" %>

@@ -32,7 +32,7 @@ class CheckinsController < ApplicationController
 
     respond_to do |format|
       if @checkin.save
-        format.html { redirect_to @checkin, notice: 'Checkin was successfully created.' }
+        format.html { redirect_to @checkin.competitor.team, notice: 'Checkin was successfully created.' }
         format.json { render :show, status: :created, location: @checkin }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class CheckinsController < ApplicationController
   def update
     respond_to do |format|
       if @checkin.update(checkin_params)
-        format.html { redirect_to @checkin, notice: 'Checkin was successfully updated.' }
+        format.html { redirect_to @checkin.competitor.team, notice: 'Checkin was successfully updated.' }
         format.json { render :show, status: :ok, location: @checkin }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class CheckinsController < ApplicationController
   def destroy
     @checkin.destroy
     respond_to do |format|
-      format.html { redirect_to checkins_url, notice: 'Checkin was successfully destroyed.' }
+      format.html { redirect_to @checkin.competitor.team, notice: 'Checkin was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
