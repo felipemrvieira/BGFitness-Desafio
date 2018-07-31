@@ -28,3 +28,16 @@
   .laranja{background-color: #f4511e;}
   .verde{background-color: #1b5e20;}
   .vermelha{background-color: #b71c1c;}
+
+  .container-fluid{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+body{
+  margin: 0;
+  padding-bottom: 32px;
+  .navbar{
+    border-radius: 0;
+  }
+}
