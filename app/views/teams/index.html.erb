@@ -21,7 +21,7 @@
       </thead>
 
       <tbody>
-        <% @teams.farol.each do |team| %>
+        <% @teams.farol.sort_by(&:'team_points').reverse!.each do |team| %>
           <tr>
             <td><span class="dot <%= team.name.downcase %>"></span></td>
             <td><%= team.name %></td>
